@@ -3,22 +3,32 @@ from libqtile.lazy import lazy
 
 
 def setup_groups(mod):
-    groups = [Group(i) for i in "123456789"]
+    groups = []
     keys = []
-    for i in groups:
+    defaults = {
+        "layout": "columns",
+    }
+    for idx, label in enumerate("一二三四五六七八九十"):
+        groups.append(
+            Group(name=str(idx),
+                  label=label,
+                  **defaults)
+        )
+    for group in groups:
         keys.extend([  # mod1 + letter of group = switch to group
             Key(
                 [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                group.name,
+                lazy.group[group.name].toscreen(),
+                desc="Switch to group {}".format(group.name),
             ),
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
                 [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                group.name,
+                lazy.window.togroup(group.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(
+                    group.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
