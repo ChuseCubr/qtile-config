@@ -1,0 +1,6 @@
+cairocffi==1.4.0
+cffi==1.15.1
+xcffib==1.1.2
+dbus-next==0.2.3
+pycparser==2.21
+qtile==0.22.1

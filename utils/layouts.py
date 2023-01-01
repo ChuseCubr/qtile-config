@@ -1,5 +1,5 @@
 from libqtile import layout
-from colors import Colors
+from .colors import Colors
 
 
 def setup_layouts():

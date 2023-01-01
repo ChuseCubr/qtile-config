@@ -29,10 +29,10 @@ from libqtile.config import Click, Drag, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from keys import setup_keys
-from groups import setup_groups
-from bar import setup_bar
-from layouts import setup_layouts
+from utils.keys import setup_keys
+from utils.groups import setup_groups
+from utils.bar import setup_bar
+from utils.layouts import setup_layouts
 
 mod = "mod4"
 terminal = guess_terminal()
