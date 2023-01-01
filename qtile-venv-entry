@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+source ~/.config/qtile/venv/bin/activate
+python ~/.config/qtile/venv/bin/qtile start

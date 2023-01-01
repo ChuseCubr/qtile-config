@@ -36,7 +36,7 @@ from utils.layouts import setup_layouts
 
 mod = "mod4"
 terminal = guess_terminal()
-wallpaper_path = "~/projects/qtile-config/4k-bridge-nord.png"
+wallpaper_path = "~/.config/qtile/4k-bridge-nord.png"
 
 groups, new_keys = setup_groups(mod)
 keys = setup_keys(mod, terminal)

@@ -10,7 +10,7 @@ def setup_groups(mod):
     }
     for idx, label in enumerate("一二三四五六七八九十"):
         groups.append(
-            Group(name=str(idx),
+            Group(name=str((idx+1)%10),
                   label=label,
                   **defaults)
         )
