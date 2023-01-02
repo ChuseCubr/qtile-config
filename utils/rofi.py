@@ -10,3 +10,11 @@ def setup_rofi(mod):
     return [
         Key([alt], "space", lazy.spawn(launcher_path), desc="Spawn rofi launcher"),
     ]
+
+def get_command(command):
+    rofi_path = expanduser("~/.config/rofi")
+    match command:
+        case "volume":
+            return rofi_path + "/applets/bin/volume.sh"
+        case "launcher":
+            return rofi_path + "/launchers/type-1/launcher.sh"

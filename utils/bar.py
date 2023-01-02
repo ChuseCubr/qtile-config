@@ -1,5 +1,8 @@
 from libqtile import bar, widget
+from libqtile.lazy import lazy
+
 from .colors import Colors
+from .rofi import get_command
 
 
 def setup_bar():
@@ -47,6 +50,9 @@ def setup_bar():
                 # fmt=" {}",  # \uf028
                 volume_app="pavucontrol",
                 foreground=Colors.YELLOW,
+                mouse_callbacks={
+                    "Button1": lazy.spawn(get_command("volume")),
+                },
             ),
             widget.Battery(
                 format="{char} {percent:2.0%}",

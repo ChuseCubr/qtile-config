@@ -24,7 +24,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import layout
+import os
+import subprocess
+
+from libqtile import layout, hook
 from libqtile.config import Click, Drag, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -34,6 +37,12 @@ from utils.rofi import setup_rofi
 from utils.groups import setup_groups
 from utils.bar import setup_bar
 from utils.layouts import setup_layouts
+
+# Startup
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser("~/.config/qtile/scripts/autostart.sh")
+    subprocess.call([home])
 
 mod = "mod4"
 terminal = guess_terminal("alacritty")
