@@ -21,7 +21,7 @@ def setup_bar():
                 scale=0.5,
             ),
             widget.Chord(
-                background=Colors.BLUE0,
+                background=Colors.BLUE2,
             ),
             widget.GroupBox(
                 font="FantasqueSansMono Nerd Font",
@@ -44,12 +44,11 @@ def setup_bar():
             # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
             # widget.StatusNotifier(),
             widget.Systray(),
-            widget.Spacer(15),
             widget.PulseVolume(
-                fmt="墳 {}",  # \ufa7d
+                fmt="墳",  # \ufa7d
                 # fmt=" {}",  # \uf028
                 volume_app="pavucontrol",
-                foreground=Colors.YELLOW,
+                foreground=Colors.WHITE0,
                 mouse_callbacks={
                     "Button1": lazy.spawn(get_command("volume")),
                 },

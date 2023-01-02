@@ -4,11 +4,11 @@ from libqtile.lazy import lazy
 
 
 def setup_rofi(mod):
-    alt = "mod1"
     rofi_path = expanduser("~/.config/rofi")
-    launcher_path = rofi_path + "/launchers/type-1/launcher.sh"
     return [
-        Key([alt], "space", lazy.spawn(launcher_path), desc="Spawn rofi launcher"),
+        Key(["mod1"], "space", lazy.spawn(f"{rofi_path}/launchers/launcher.sh"), desc="Spawn rofi launcher"),
+        Key([mod], "Tab", lazy.spawn(f"{rofi_path}/launchers/window.sh"), desc="Spawn rofi window walker"),
+        Key([mod, "shift"], "s", lazy.spawn(f"{rofi_path}/applets/bin/screenshot.sh"), desc="Interactive screenshot")
     ]
 
 def get_command(command):
@@ -17,4 +17,4 @@ def get_command(command):
         case "volume":
             return rofi_path + "/applets/bin/volume.sh"
         case "launcher":
-            return rofi_path + "/launchers/type-1/launcher.sh"
+            return rofi_path + "/launchers/launcher.sh"
