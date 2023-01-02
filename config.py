@@ -30,17 +30,20 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 from utils.keys import setup_keys
+from utils.rofi import setup_rofi
 from utils.groups import setup_groups
 from utils.bar import setup_bar
 from utils.layouts import setup_layouts
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = guess_terminal("alacritty")
 wallpaper_path = "~/.config/qtile/4k-bridge-nord.png"
 
-groups, new_keys = setup_groups(mod)
+groups, groups_keys = setup_groups(mod)
+rofi_keys = setup_rofi(mod)
 keys = setup_keys(mod, terminal)
-keys.extend(new_keys)
+keys.extend(groups_keys)
+keys.extend(rofi_keys)
 
 layouts = setup_layouts()
 
