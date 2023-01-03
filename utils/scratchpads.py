@@ -9,7 +9,6 @@ def setup_scratchpads(mod, terminal):
         "y": 0.25,
         "opacity": 1.0,
     }
-
     groups = [
         ScratchPad("scratchpad", [
             DropDown(
@@ -39,7 +38,6 @@ def setup_scratchpads(mod, terminal):
             ),
         ]),
     ]
-
     keys = [
         Key(
             [mod], "t",
@@ -65,5 +63,4 @@ def setup_scratchpads(mod, terminal):
             desc="Private Web Browser scratchpad"
         ),
     ]
-    
     return groups, keys

@@ -1,5 +1,4 @@
 from libqtile import bar, widget
-from libqtile.lazy import lazy
 
 from .colors import Colors
 from .rofi import get_command
