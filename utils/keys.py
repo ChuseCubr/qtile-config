@@ -18,6 +18,7 @@ def setup_keys(mod, terminal):
         Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
         Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
         Key(["mod1"], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
+        Key([mod], "d", minimize_all(), desc="Move window focus to other window"),
         # Move windows between left/right columns or move up/down in current stack.
         # Moving out of range in Columns layout will create new column.
         Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -76,5 +77,5 @@ def setup_keys(mod, terminal):
         Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
         Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
         Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-        Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+        Key([mod], "l", lazy.spawn("betterlockscreen -l"), desc="Lock the screen"),
     ]

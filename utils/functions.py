@@ -18,6 +18,12 @@ def window_to_next_group(qtile):
         qtile.current_window.togroup(qtile.groups[new_idx].name)
         qtile.current_screen.next_group()
 
+@lazy.function
+def minimize_all(qtile):
+    for win in qtile.current_group.windows:
+        if hasattr(win, "toggle_minimize"):
+            win.toggle_minimize()
+
 def fix_cli_app(terminal, app):
     '''Quick fix of github.com/qtile/qtile/issues/2167 bug'''
     fix_environment = 'export -n LINES; export -n COLUMNS; sleep 0.1 &&'

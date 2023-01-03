@@ -49,7 +49,7 @@ terminal = guess_terminal("alacritty")
 wallpaper_path = "~/.config/qtile/4k-bridge-nord.png"
 
 groups, groups_keys = setup_groups(mod)
-rofi_keys = setup_rofi(mod)
+rofi_path, rofi_keys = setup_rofi(mod)
 keys = setup_keys(mod, terminal)
 keys.extend(groups_keys)
 keys.extend(rofi_keys)

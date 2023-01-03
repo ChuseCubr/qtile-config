@@ -82,6 +82,9 @@ def setup_bar():
                 default_text=" 襤 ",  # \uf011
                 # default_text="  ", #  \uf924
                 countdown_format=" {} ",
+                mouse_callbacks={
+                    "Button1": get_command("powermenu")
+                },
             ),
         ],
         36,
