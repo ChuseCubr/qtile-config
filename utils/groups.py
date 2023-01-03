@@ -1,20 +1,24 @@
-from libqtile.config import Group, Key
+from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
 
 def setup_groups(mod):
-    groups = []
-    keys = []
+    groups, keys = setup_special(mod)
+    specials = len(groups)
     defaults = {
         "layout": "columns",
     }
-    for idx, label in enumerate("一二三四五六七八九十"):
+    kanji = "一二三四五六七八九十"
+    labels = kanji[:7]
+
+    for idx, label in enumerate(labels):
         groups.append(
             Group(name=str((idx+1)%10),
                   label=label,
                   **defaults)
         )
-    for group in groups:
+
+    for group in groups[specials:]:
         keys.extend([  # mod1 + letter of group = switch to group
             Key(
                 [mod],
@@ -35,4 +39,31 @@ def setup_groups(mod):
             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
             #     desc="move focused window to group {}".format(i.name)),
         ])
+
+    return groups, keys
+
+def setup_special(mod):
+    groups = [
+        Group(
+            name="settings",
+            label="",
+            matches=[
+                Match(wm_class="easyeffects")
+            ]
+        ),
+        Group(
+            name="chat",
+            label="ﭮ",
+            matches=[
+                Match(wm_class=[
+                    "discord",
+                    "caprine",
+                ])
+            ]
+        ),
+    ]
+    keys = [
+        Key([mod], "i", lazy.group["settings"].toscreen(toggle=True), desc="Settings scratchpad"),
+        Key([mod], "c", lazy.group["chat"].toscreen(toggle=True), desc="Chat group"),
+    ]
     return groups, keys

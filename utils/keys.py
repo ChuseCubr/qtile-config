@@ -68,10 +68,9 @@ def setup_keys(mod, terminal):
                 Key([], "b", lazy.spawn("firefox"), lazy.ungrab_all_chords(), desc="Launch browser"),
                 Key([], "p", lazy.spawn("firefox --private-window"), lazy.ungrab_all_chords(), desc="Launch private browser"),
                 Key([], "e", lazy.spawn("nautilus"), lazy.ungrab_all_chords(), desc="Launch file browser"),
-                Key([], "t", lazy.spawn(fix_cli_app(terminal, "nvim")), lazy.ungrab_all_chords(), desc="Launch file browser"),
                 Key([], "i", lazy.spawn("gnome-control-center"), lazy.ungrab_all_chords(), desc="Launch settings manager"),
             ],
-            mode = " Run"
+            name=" Run"
         ),
         # Toggle between different layouts as defined below
         Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),

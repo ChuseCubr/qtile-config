@@ -37,6 +37,7 @@ from utils.rofi import setup_rofi
 from utils.groups import setup_groups
 from utils.bar import setup_bar
 from utils.layouts import setup_layouts
+from utils.scratchpads import setup_scratchpads
 
 # Startup
 @hook.subscribe.startup_once
@@ -49,10 +50,14 @@ terminal = guess_terminal("alacritty")
 wallpaper_path = "~/.config/qtile/4k-bridge-nord.png"
 
 groups, groups_keys = setup_groups(mod)
+scratchpad_groups, scratchpad_keys = setup_scratchpads(mod, terminal)
+groups.extend(scratchpad_groups)
+
 rofi_path, rofi_keys = setup_rofi(mod)
 keys = setup_keys(mod, terminal)
 keys.extend(groups_keys)
 keys.extend(rofi_keys)
+keys.extend(scratchpad_keys)
 
 layouts = setup_layouts()
 
