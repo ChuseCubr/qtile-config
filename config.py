@@ -47,7 +47,7 @@ def autostart():
 
 mod = "mod4"
 terminal = guess_terminal("alacritty")
-wallpaper_path = "~/.config/qtile/4k-bridge-nord.png"
+wallpaper_path = "~/.config/qtile/wallpaper.png"
 
 groups, groups_keys = setup_groups(mod)
 scratchpad_groups, scratchpad_keys = setup_scratchpads(mod, terminal)
@@ -61,7 +61,7 @@ keys.extend(scratchpad_keys)
 
 layouts = setup_layouts()
 
-top_bar, widget_defaults, extension_defaults = setup_bar()
+top_bar, widget_defaults, extension_defaults = setup_bar(floating=False)
 
 screens = [
     Screen(

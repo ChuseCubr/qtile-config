@@ -2,13 +2,13 @@ from libqtile.config import ScratchPad, Group, DropDown, Key, Match
 from libqtile.lazy import lazy
 
 def setup_scratchpads(mod, terminal):
-    defaults = {
-        "width": 0.5,
-        "height": 0.5,
-        "x": 0.25,
-        "y": 0.25,
-        "opacity": 1.0,
-    }
+    defaults = dict(
+        width=0.5,
+        height=0.5,
+        x=0.25,
+        y=0.25,
+        opacity=1.0,
+    )
     groups = [
         ScratchPad("scratchpad", [
             DropDown(

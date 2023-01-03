@@ -5,9 +5,9 @@ from libqtile.lazy import lazy
 def setup_groups(mod):
     groups, keys = setup_special(mod)
     specials = len(groups)
-    defaults = {
-        "layout": "columns",
-    }
+    defaults = dict(
+        layout="columns",
+    )
     kanji = "一二三四五六七八九十"
     labels = kanji[:7]
 
@@ -47,7 +47,7 @@ def setup_special(mod):
     groups = [
         Group(
             name="settings",
-            label="",
+            label=" ",
             matches=[
                 Match(wm_class="easyeffects")
             ]

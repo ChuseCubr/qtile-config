@@ -3,13 +3,13 @@ from .colors import Colors
 
 
 def setup_layouts():
-    defaults = {
-        "border_focus"     : Colors.BLUE3,
-        "border_normal"    : Colors.BLACK0,
-        "border_on_single" : True,
-        "border_width"     : 0,
-        "margin"           : 5
-    }
+    defaults = dict(
+        border_focus=Colors.BLUE3,
+        border_normal=Colors.BLACK0,
+        border_on_single=True,
+        border_width=0,
+        margin=5
+    )
     return [
         layout.Columns(**defaults),
         layout.Max(**defaults),
