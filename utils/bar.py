@@ -53,6 +53,7 @@ def setup_bar():
                     "Button1": lazy.spawn(get_command("volume")),
                 },
             ),
+            widget.Spacer(length=15),
             widget.Battery(
                 format="{char} {percent:2.0%}",
                 foreground=Colors.GREEN,

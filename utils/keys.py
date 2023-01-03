@@ -59,7 +59,8 @@ def setup_keys(mod, terminal):
             lazy.layout.toggle_split(),
             desc="Toggle between split and unsplit sides of stack",
         ),
-            # Launchers
+        Key([mod], "f", lazy.window.toggle_floating()),
+        # Launchers
         KeyChord([mod], "Return",
             [
                 Key([], "Return", lazy.spawn(terminal), lazy.ungrab_all_chords(), desc="Launch terminal"),
@@ -76,5 +77,4 @@ def setup_keys(mod, terminal):
         Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
         Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
         Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-        Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     ]
