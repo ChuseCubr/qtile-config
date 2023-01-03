@@ -54,7 +54,7 @@ def setup_special(mod):
         ),
         Group(
             name="chat",
-            label="ﭮ",
+            label=" ﭮ",
             matches=[
                 Match(wm_class="discord"),
                 Match(wm_class="caprine"),

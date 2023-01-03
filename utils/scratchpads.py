@@ -21,21 +21,6 @@ def setup_scratchpads(mod, terminal):
                 f"{terminal} -e nvim",
                 **defaults
             ),
-            DropDown(
-                "files",
-                "nautilus",
-                **defaults
-            ),
-            DropDown(
-                "browser",
-                "firefox",
-                **defaults
-            ),
-            DropDown(
-                "private",
-                "firefox --private-window",
-                **defaults
-            ),
         ]),
     ]
     keys = [
@@ -44,23 +29,10 @@ def setup_scratchpads(mod, terminal):
             lazy.group["scratchpad"].dropdown_toggle("term"),
             desc="Terminal scratchpad"
         ),
-        Key([mod], "v",
+        Key(
+            [mod], "v",
             lazy.group["scratchpad"].dropdown_toggle("nvim"),
             desc="Neovim scratchpad"
-        ),
-        Key([mod], "e",
-            lazy.group["scratchpad"].dropdown_toggle("files"),
-            desc="File Browser scratchpad"
-        ),
-        Key(
-            [mod], "b",
-            lazy.group["scratchpad"].dropdown_toggle("browser"),
-            desc="Web Browser scratchpad"
-        ),
-        Key(
-            [mod], "p",
-            lazy.group["scratchpad"].dropdown_toggle("private"),
-            desc="Private Web Browser scratchpad"
         ),
     ]
     return groups, keys
