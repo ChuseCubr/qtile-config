@@ -13,9 +13,11 @@ def setup_groups(mod):
 
     for idx, label in enumerate(labels):
         groups.append(
-            Group(name=str((idx+1)%10),
-                  label=label,
-                  **defaults)
+            Group(
+                name=str((idx+1)%10),
+                label=label,
+                **defaults
+            )
         )
 
     for group in groups[specials:]:
@@ -24,15 +26,14 @@ def setup_groups(mod):
                 [mod],
                 group.name,
                 lazy.group[group.name].toscreen(),
-                desc="Switch to group {}".format(group.name),
+                desc=f"Switch to group {group.name}"
             ),
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
                 [mod, "shift"],
                 group.name,
                 lazy.window.togroup(group.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(
-                    group.name),
+                desc=f"Switch to & move focused window to group {group.name}"
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -55,15 +56,20 @@ def setup_special(mod):
             name="chat",
             label="ﭮ",
             matches=[
-                Match(wm_class=[
-                    "discord",
-                    "caprine",
-                ])
+                Match(wm_class="discord"),
+                Match(wm_class="caprine"),
             ]
         ),
     ]
     keys = [
-        Key([mod], "i", lazy.group["settings"].toscreen(toggle=True), desc="Settings scratchpad"),
-        Key([mod], "c", lazy.group["chat"].toscreen(toggle=True), desc="Chat group"),
+        Key(
+            [mod], "i",
+            lazy.group["settings"].toscreen(toggle=True),
+            desc="Settings scratchpad"
+        ),
+        Key([mod], "c",
+            lazy.group["chat"].toscreen(toggle=True),
+            desc="Chat group"
+        ),
     ]
     return groups, keys

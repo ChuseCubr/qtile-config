@@ -50,7 +50,7 @@ def setup_bar():
                 volume_app="pavucontrol",
                 foreground=Colors.WHITE0,
                 mouse_callbacks={
-                    "Button1": lazy.spawn(get_command("volume")),
+                    "Button1": get_command("volume"),
                 },
             ),
             widget.Spacer(length=15),
@@ -83,7 +83,7 @@ def setup_bar():
                 # default_text="  ", #  \uf924
                 countdown_format=" {} ",
                 mouse_callbacks={
-                    "Button1": get_command("powermenu")
+                    "Button1": get_command("powermenu"),
                 },
             ),
         ],
