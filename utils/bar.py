@@ -31,8 +31,8 @@ def setup_bar(floating=True):
     widget_defaults = dict(
         font="FantasqueSansMono Nerd Font",
         foreground=Colors.WHITE2,
-        fontsize=18,
-        padding=12,
+        fontsize=16,
+        padding=10,
     )
     extension_defaults = widget_defaults.copy()
     screen_bar = bar.Bar(
@@ -108,7 +108,7 @@ def setup_bar(floating=True):
                 },
             ),
         ],
-        36,
+        28,
         background=Colors.BLACK1,
         opacity=1.0,
         **bar_opts
