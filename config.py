@@ -91,7 +91,8 @@ floating_layout = layout.Floating(
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(wm_class="pavucontrol"),  # volume
+        Match(wm_class="pavucontrol"),
+        Match(wm_class="gnome-system-monitor"),
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ],

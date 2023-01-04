@@ -21,6 +21,11 @@ def setup_scratchpads(mod, terminal):
                 f"{terminal} -e nvim",
                 **defaults
             ),
+            DropDown(
+                "btop",
+                f"{terminal} -e btop",
+                **defaults
+            ),
         ]),
     ]
     keys = [
@@ -33,6 +38,11 @@ def setup_scratchpads(mod, terminal):
             [mod], "v",
             lazy.group["scratchpad"].dropdown_toggle("nvim"),
             desc="Neovim scratchpad"
+        ),
+        Key(
+            ["control", "shift"], "Escape",
+            lazy.group["scratchpad"].dropdown_toggle("btop"),
+            desc="Monitor scratchpad"
         ),
     ]
     return groups, keys
