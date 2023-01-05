@@ -52,6 +52,7 @@ def setup_bar(floating=True):
                 block_highlight_text_color=Colors.BLUE2,
 
                 inactive=Colors.WHITE0,
+                urgent_border=Colors.ORANGE,
 
                 highlight_color=Colors.BLACK3,
                 this_current_screen_border=Colors.BLUE3,
